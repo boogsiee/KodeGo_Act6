@@ -1,0 +1,492 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>theHub</title>
+    </head>
+    <style>
+        * {box-sizing: border-box; padding: 0; margin: 0;}
+        body {font-family: sans-serif;font-size: 16px; background-color: #01020C;}
+        :root {
+            --navbar-bg-color: hsl(0, 0%, 15%);
+            --navbar-text-color: hsl(0, 0%, 85%);
+            --navbar-text-color-focus: white;
+            --navbar-bg-contrast: hsl(0, 0%, 25%);}
+
+            .container {
+                max-width: 1000px;
+                padding-left: 1.4rem;
+                padding-right: 1.4rem;
+                margin-left: auto;
+                margin-right: auto;}
+            #navbar {
+            --navbar-height: 64px;
+            position: absolute;
+            z-index:2;
+            height: var(--navbar-height);
+            background-color: transparent;
+            left: 0;
+            right: 0;}
+            
+            .navbar-container {
+                display: flex;
+                justify-content: space-between;
+                height: 100%;
+                align-items: center;}
+            .navbar-item {
+                margin: 0.4em;
+            width: 100%;}
+
+            .home-link,
+            .navbar-link {
+                color: var(--navbar-text-color);
+                text-decoration: none;
+                display: flex;
+                font-weight: 80px;
+                align-items: center;}
+
+            .home-link:is(:focus, :hover) {
+                color: var(--navbar-text-color-focus);}
+
+            .navbar-link {
+                justify-content: center;
+                width: 100%;
+                padding: 0.4em 0.8em;
+                border-radius: 5px;}
+
+            .navbar-link:is(:focus, :hover) {
+                color: var(--navbar-text-color-focus);
+                background-color: transparent;}
+            .navbar-logo {
+                background-image: url('play.png');
+                background-repeat: no-repeat;
+                margin-top: 25px;
+                width: 75px;
+                height: 80px;
+                margin-right: 0.5em;}
+            #navbar-toggle {
+                cursor: pointer;
+                border: none;
+                background-color: transparent;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;}
+            .icon-bar {
+                display: block;
+                width: 45px;
+                height: 45px;
+                margin: 2px;
+                background-color: var(--navbar-text-color);}
+            #navbar-toggle:is(:focus, :hover) .icon-bar {
+                background-color: var(--navbar-text-color-focus);}
+            #navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+                position: absolute;
+                margin: 0;
+                width: 30px;}
+            #navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+                transform: rotate(45deg);}
+            #navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+                opacity: 0;}
+            #navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+                transform: rotate(-45deg);}
+            #navbar-menu {
+                position: fixed;
+                top: var(--navbar-height);
+                visibility: hidden;}
+            #navbar-toggle[aria-expanded="true"] + #navbar-menu {
+                background-color: rgba(0, 0, 0, 0.4);
+                opacity: 1;
+                visibility: visible;}
+            .navbar-links {
+                list-style: none;
+                position: absolute;
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                left: 0;
+                right: 0;
+                margin: 1.4rem;
+                border-radius: 5px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);}
+
+            #navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-links {
+                padding: 1em;}
+            @media screen and (min-width: 700px) {
+            #navbar-toggle,
+            #navbar-toggle[aria-expanded="true"] {
+                display: none;}
+
+            #navbar-menu,
+            #navbar-toggle[aria-expanded="true"] #navbar-menu {
+                visibility: visible;
+                opacity: 1;
+                position: static;
+                display: block;
+                height: 100%;}
+
+            .navbar-links,
+            #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                position: static;
+                flex-direction: row;
+                width: 100%;
+                height: 100%;}}
+
+        /*slider*/
+        .home{
+            display: flex;
+            height:500px;
+            padding-bottom: 40px;
+            overflow:hidden;
+        }
+        .home .slide{
+            position:absolute;
+            align-self: center;
+            display:flex;
+            top:0;
+            left:0;
+            width:100%;
+            height:500px;
+            background-size: cover;
+            z-index: 0;
+            padding: 0 15px;
+            display:none;
+            animation: slide 2 ease;
+        }
+        .home .slide.active{display:flex;}
+        @keyframes slide {
+            0%{
+                transform:scale(1.1);
+            }100%{
+                transform:scale(1);
+            }
+        }
+
+        .container{
+            max-width: 1170px;
+            margin:auto;
+            flex-grow:1;
+        }
+        .home .container{
+            flex-grow:1;
+        }
+        .home .caption{
+            width:50%;
+        }
+
+        .home .caption h1{
+            font-size: 90px;
+            color:aqua;
+            margin:0;
+        }
+        .home .caption p{
+            position: absolute;
+            z-index:4;
+            font-size:100%;
+            margin:0px;
+            color:aquamarine;
+        }
+        .home .slide.active .caption p{
+            opacity:0;
+            animation: captionText 0.5s ease forwards;
+            animation-delay: 0.5s;
+        }
+        .home .caption a{
+            display:inline-block;
+            padding:10px 30px;
+            color:white;
+            background:black;
+            text-decoration:none;
+        }
+        .home .slide.active .caption a{
+            opacity:0;
+            animation: captionText 0.5s ease forwards;
+            animation-delay: 3.4s;
+        }
+        @keyframes captionText{
+            0%{
+                opacity:0;
+                transform:translateX(-100px);
+            }
+        }
+        .home .controls .prev, 
+        .home .controls .next{
+            position:absolute;
+            top:80%;
+            z-index:2;
+            height:60px;
+            width: 55px;
+            margin-top: -15%;
+            color: white;
+            background:black;
+            text-align: center;
+            line-height:60px;
+            font-size: 40px;
+            cursor: pointer;
+            transition: 0.5 ease;
+            opacity: 0.4;
+            border-radius: 50%;
+        }
+        .home .controls .next{
+            right:0;
+        }
+        .home .controls .prev{
+            left:0;
+
+        }
+        .home .controls .prev:hover{
+            background-color:black;
+        }
+        .home .controls .next:hover{
+            background-color:black;
+        }
+
+        .home .indicator{
+            position:absolute;
+            left: 50%;
+            bottom: 30px;
+            z-index: 2;
+            transform: translateX(-50%);
+        }
+
+        .home .indicator div{
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            color: white;
+            background-color: aquamarine;
+            border-radius: 50%;
+            text-align:center;
+            line-height:25px;
+            margin: 0 3px;
+            cursor:pointer;
+        }
+        .home .indicator div.active{
+            background-color: black;
+        }
+        .cemetery{
+            position:absolute;
+            z-index:4;
+            font-size: 125%;
+            color: #DC2F02;
+            flex-direction: row;
+            text-shadow: 0px 4px 10px 2px gray;
+            margin-top:-50px;
+            margin-left:30px;
+        }
+        .casket{
+            margin-left: 2px;
+            margin-right: 2px;
+            margin-top: 0px;
+            display:flex;
+            flex-direction: row;
+            width:100%;
+            flex-wrap: nowrap;
+            align-content: flex-start;
+            text-align: center;
+            justify-content: center;   
+            gap:0px;
+        }
+        .lineups{
+            width: 14%; 
+            height: 300px;
+            padding-bottom:10px;
+            box-shadow: 0px 4px 4px 2px gray; 
+            margin:0px 3px 3npx 10px; 
+        }
+        img{
+            width: 100%;
+            height: 300px;
+        }
+        background-image{
+            box-shadow: inset 0px 0px 30px 30px rgba(0,0,0,0.9);
+        }
+        @media (max-width: 800px) {
+            .box {flex: 50%;}} 
+    </style>
+<body>
+
+    <header id="navbar">
+        <nav class="navbar-container container">
+          <a href="#home" class="home-link">
+            <div class="navbar-logo"></div>
+                <h3>theHub</h3>
+          </a>
+          <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div id="navbar-menu" aria-labelledby="navbar-toggle">
+            <ul class="navbar-links">
+              <li class="navbar-item"><a class="navbar-link" href="#movies">MOVIES</a></li>
+              <li class="navbar-item"><a class="navbar-link" href="#Series">SERIES</a></li>
+              <li class="navbar-item"><a class="navbar-link" href="#Genre">GENRE</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+
+            <section class="home">
+                <div class="slider">
+                    <div class="slide active" style="background-image: url('2.jpg');">
+                        <div class="container">
+                            <div class="caption">
+                                <h1> The TITLE</h1>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident vel illum earum ea. Quo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide active" style="background-image: url('3.png');">
+                        <div class="container">
+                            <div class="caption">
+                                <h1> The TItle 2</h1>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident vel illum earum ea. Quo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- controls -->
+            <div class="controls">
+                <div class="prev">
+                    <
+                </div>
+                <div class="next">
+                    >
+                </div>
+            </div>
+            <!--indicators-->
+            <div class="indicator">
+
+            </div>
+            </section>
+         <div class="cemetery">
+            <h1>My Channel</h1>
+            <div class="casket">
+                <div class="lineups">
+                    <img src="6.jpg">
+                </div>
+                <div class="lineups">
+                    <img src="6.jpg">
+                </div>
+                <div class="lineups">
+                    <img src="6.jpg">
+                </div>
+                <div class="lineups">
+                    <img src="6.jpg">
+                </div>
+                <div class="lineups">
+                    <img src="6.jpg">
+                </div>
+                <div class="lineups">
+                    <img src="6.jpg">
+                </div>
+            </div>
+        </div> 
+        <script>
+            const navbarToggle = navbar.querySelector("#navbar-toggle");
+                const navbarMenu = document.querySelector("#navbar-menu");
+                const navbarLinksContainer = navbarMenu.querySelector(".navbar-links");
+                let isNavbarExpanded = navbarToggle.getAttribute("aria-expanded") === "true";
+
+                const toggleNavbarVisibility = () => {
+                    isNavbarExpanded = !isNavbarExpanded;
+                    navbarToggle.setAttribute("aria-expanded", isNavbarExpanded);};
+
+                navbarToggle.addEventListener("click", toggleNavbarVisibility);
+
+                navbarLinksContainer.addEventListener("click", (e) => e.stopPropagation());
+                navbarMenu.addEventListener("click", toggleNavbarVisibility);
+
+            
+                /*slider*/
+                const slides=document.querySelector(".slider").children;
+                const prev=document.querySelector(".prev");
+                const next=document.querySelector(".next");
+                const indicator=document.querySelector(".indicator")
+                let index=0;
+
+                prev.addEventListener("click",function(){
+                    prevSlide();
+                    updateCircleIndicator();
+                    resetTimer();
+                })
+                next.addEventListener("click",function(){
+                    nextSlide();
+                    updateCircleIndicator();
+                    resetTimer();
+                })
+
+                function circleIndicator(){
+                    for(let i=0; i<slides.length; i++){
+                        div.innerHTML=i+1;
+                    div.setAttribute("onclick","indicateSlide(this)")
+                        div=id=i;
+                        if(i==0){
+                            div.className="active";
+                        }
+                    indicator.appendChild(div);
+                }
+            }
+            circleIndicator();
+
+            function indicatesSlide(element){
+                index=element.id;
+                changeSlide();
+                updateCircleIndicator();
+                resetTimer();
+            }
+
+            function updateCircleIndicator(){
+                for(let i=0; i<indicator.children.length; i++){
+                    indicator.children[index].classList.add("active");
+                }
+            }
+
+            //prev slide function
+
+            function prevSlide(){
+                if(index==0){
+                    index=slides.length-1;
+                }
+                else{
+                    index--;
+                } changeSlide();
+            }
+
+            function nextSlide(){
+                if(index==slides.length-1){
+                    index=0;
+                }else{
+                    index++;
+                } changeSlide();
+            }
+
+            function changeSlide(){
+                for(let i=0; i<slides.length; i++){
+                    slides[i].classList.remove("active");
+                }
+                slides[index].classList.add("active");
+            }
+
+            function resetTimer(){
+                clearInterval(timer);
+                timer=setInterval(autoPlay,4000);
+            }
+
+            function autoplay(){
+                nextSLide();
+                updateCircleIndicator();
+            }
+            let timer=setInterval(autoPlay,4000);   
+        </script>
+    </body>
+</html>
