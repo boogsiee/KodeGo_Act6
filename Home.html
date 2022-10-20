@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="play.png" type="image">
+    <title>theHub</title>
+  </head>
+  <style>
+    *{
+	    margin: 0;
+	    padding: 0;
+	    box-sizing: border-box;
+	    font-family: sans-serif;
+    }
+    body{
+      background-color: #020516;
+      height:50%;
+    }
+    header{
+      height: 60px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      font-family: sans-serif;
+	    z-index: 2;
+    }
+    #logo{
+      line-height: 60px;
+      margin-left: 40px;
+      display: inline-block;
+	    cursor: pointer;
+	    font-size: 30px;
+	    font-weight: bold;
+	    color: #F48C06  /* official orange*/
+    }
+    #logo:hover{
+      color: #eef9ff; /* white */
+    }
+    #logo-s{
+	    color: #eef9ff; /* white */
+	    margin-left: 5px;
+    }
+    #logo:hover #logo-s{
+	    color: #F48C06; /* official orange*/
+    }
+    .sign{
+	    float: right;
+      font-size:80%;
+	    line-height: 60px;
+	    margin-right: 40px;
+    }
+    .sign a{
+	    color: #fff;
+	    font-weight: bold;
+	    text-decoration: none;
+    }
+    .profile{
+	    border: 2px solid #fff;
+	    border-radius: 50px;
+	    padding: 6px 15px;
+    }
+    .sign a:hover{
+	    color:#F48C06;
+	    border-color: #F48C06; 
+    }
+                /* 2 */
+    .slider{
+	    position: relative;
+	    width: 100%;
+	    background: #03071E; 
+    }
+    .myslide{
+	    height: 655px;
+	    display: none;
+	    overflow: hidden;
+    }
+    .prev, .next{
+	    position: absolute;
+	    top: 50%;
+	    transform: translate(0, -50%);
+	    font-size: 50px;
+	    padding: 15px;
+	    cursor: pointer;
+	    color: #fff;
+	    transition: 0.1s;
+	    user-select: none;
+    }
+    .prev:hover, .next:hover{
+	    color: #F48C06;
+    }
+    .next{
+	    right: 0;
+    }
+    .dotsbox{
+	    position: absolute;
+	    left: 50%;
+	    transform: translate(-50%);
+	    bottom: 20px;
+	    cursor: pointer;
+    }
+    .dot{
+	    display: inline-block;
+	    width: 15px;
+	    height: 15px;
+	    border: 3px solid #E85D04;
+	    border-radius: 50%;
+	    margin: 0 10px;
+	    cursor: pointer;
+    }
+        /* /2 */
+    /* javascript */
+    .active, .dot:hover{
+      color: #D00000;
+	    border-color: #D00000;
+    }
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    @-webkit-keyframes fade {
+      from {opacity: 0.8}
+        to {opacity: 1}
+      }
+
+    @keyframes fade {
+      from {opacity: 0.8}
+        to {opacity: 1}
+      }
+            /* 3 */
+    .txt{
+	    position: absolute;
+	    color: #fff;
+	    letter-spacing: 2px;
+	    line-height: 35px;
+	    top: 30%;
+	    left: 15%;
+	    -webkit-animation-name: posi;
+  	  -webkit-animation-duration: 2s;
+  	  animation-name: posi;
+  	  animation-duration: 2s;
+	    z-index: 1;
+    }
+    @-webkit-keyframes posi {
+      from {left: 25%;}
+      to {left: 15%;}
+    }
+    @keyframes posi {
+    from {left: 25%;}
+    to {left: 15%;}
+    }
+    .txt h1{
+	    color: #E85D04;
+	    font-size: 50px;
+      font-family: sans-serif;
+	    margin-bottom: 20px;
+      text-shadow: 0px -1px 4px rgba(0,0,0,0.55); 
+    }
+    .txt p{
+	    font-weight: bold;
+      width:100%;
+	    font-size: 20px;
+      text-shadow: 0px -1px 4px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    .playbtn{
+      color: black;
+      background-color: #F48C06;
+      height:40px;
+	    font-size: 20px;
+	    padding:5px 10px 5px 10px;
+      text-decoration: none;
+      border:0px;
+      border-radius: 5px;
+      width:25%;
+    }
+    .morebtn{
+      color: #97908b;
+      height:40px;
+	    font-size: 20px;
+	    padding:5px 10px 5px 10px;
+      text-decoration: none;
+      border:0px;
+      opacity: 0.9;
+      border-radius: 5px;
+      width:40%;
+    }
+    .playbtn:hover, .morebtn:hover{
+	    opacity: 0.5;
+    }
+          /* /3 */
+
+          /* 4 */
+    .slideimg{
+	    transform: scale(1.5, 1.5);
+	    -webkit-animation-name: zoomin;
+      -webkit-animation-duration: 40s;
+  	  animation-name: zoomin;
+  	  animation-duration: 40s;
+    }
+    @-webkit-keyframes zoomin {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.5, 1.5);}
+    }
+    @keyframes zoomin {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.5, 1.5);}
+    }
+   
+    /*Small Features with FLex*/
+    .cemetery {
+      position: absolute;
+      font-size: 125%;
+      flex-direction: row;
+      width:100%;
+      height:100%;
+      display: block;
+      margin-top: 25px;
+      text-shadow: 0px 4px 10px 2px gray;
+    }
+    .cemetery2 {
+      position: absolute;
+      font-size: 100%;
+      width:100%;
+      height:110%;
+      flex-wrap:nowrap;
+      flex-direction: row;
+      text-shadow: 0px 4px 10px 2px gray;
+      margin-top:0px;
+      padding-top:0px;
+    }
+    .casket {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height:200px;
+      margin-top: 0px;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+      text-align: center;
+      justify-content: center;
+      gap: 2px;
+      box-shadow: 5px -21px 67px 5px rgba(0, 0, 0, 1);
+    }
+    .casket2 {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height:200px;
+      margin-top: 0px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      text-align:left;
+      justify-content: center;
+      gap: 2px;
+      box-shadow: 5px -21px 67px 5px rgba(0, 0, 0, 1);
+    }
+    .lineups {
+      align-content: flex-start;  
+      width: 20%;
+      height: 190px;
+      padding-bottom: 0px;
+      margin: 0px 3px 3px 5px;
+      background: rgba( 36, 34, 34, 0.05 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 18px );
+      -webkit-backdrop-filter: blur( 18px );
+      border-radius: 10px;
+    }
+    .lineups2 {
+      align-content: flex-start;  
+      width: 18%;
+      height: 95%;
+      margin: 0px 10px 20px 10px;
+      background: rgba( 36, 34, 34, 0.05 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 18px );
+      -webkit-backdrop-filter: blur( 18px );
+      border-radius: 10px;
+    }
+    img {
+      width: 100%;
+      height:70%;
+      border-radius: 2px;
+    }
+    .zoomin .lineups{
+      height: 100%;
+      width: 100%;
+      border-radius: 2px;
+      -webkit-transition: all 0.8s ease;
+      -moz-transition: all 0.8s ease;
+      -ms-transition: all 0.8s ease;
+      transition: all 0.8s ease;
+    }
+    .zoomin .lineups2{
+      height: 100%;
+      width: 100%;
+      border-radius: 2px;
+      -webkit-transition: all 0.8s ease;
+      -moz-transition: all 0.8s ease;
+      -ms-transition: all 0.8s ease;
+      transition: all 0.8s ease;
+    }
+    .lineups-content{
+      text-align: left;
+      color:white;
+      margin:10px 20px;
+      font-size: 80%;
+      padding:5px;
+      border-left: 2px  solid#E85D04;
+    }
+     .lineups:hover {
+      height:105%;
+      margin:2px;
+      justify-content: center;
+      display:block;
+      border-radius: 5px;
+    }
+    .lineups2:hover {
+      height:100%;
+      margin:2px;
+      justify-content: center;
+      display:block;
+      border-radius: 5px;
+    }
+    @media (max-width: 800px) {
+      .box {
+        flex: 50%;
+      }
+    }
+     /*Responsiveness in Tablet*/
+     @media screen and (max-width: 800px){
+	    .myslide{
+		    height: 500px;
+      }
+	      .txt{
+		      letter-spacing: 2px;
+		      line-height: 25px;
+		      top: 50%;
+		      left: 50%;
+		      transform: translate(-50%, -50%);
+		      -webkit-animation-name: posi2;
+		      -webkit-animation-duration: 2s;
+		      animation-name: posi2;
+		      animation-duration: 2s;
+	    }
+	  @-webkit-keyframes posi2 {
+	    from {top: 35%;}
+	      to {top: 50%;}
+	    }
+	  @keyframes posi2 {
+	    from {top: 35%;}
+	      to {top: 50%;}
+	  }
+	  .txt h1{
+		  font-size: 40px;
+	  }
+	  .txt p{
+		  font-size: 13px;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  }
+        /*responsiveness in smaller machine*/
+    @media screen and (max-width: 520px){
+	    .txt h1{
+		    font-size: 20px;
+		    margin-bottom: 20px;
+    }
+	  .sign{
+		  margin-right: 5px;
+	  }
+	  .sign a{
+		font-size: 8px;
+	    }
+    .txt p{
+      font-size:10px;
+      line-height: 10px;
+      margin-bottom:20px;
+      width:100%;
+    }
+    .playbtn, .morebtn{
+      font-size:10px;
+    }
+    .lineups{
+      height:50%;
+    }
+    .cemetery, .cemetery2 h1{
+      font-size: 80%;
+    }
+    .dot{
+      width:10px;
+      height:10px;
+      bottom:50px;
+    }
+    .myslide{
+      height:300px;
+    }
+    }
+    /*responsiveness in smallest machine*/
+  @media screen and (max-width: 400px){
+    .cemetery{
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .casket{
+      margin-top: 0;
+    }
+    .cemetery2{
+      visibility:hidden;
+    }
+  }
+  </style>
+  <body>
+      <header>
+        <div id="logo">the<span id="logo-s">Hub</span></div>
+        <span class="sign"><a class="profile" href="#">MP</a></span>
+        <span class="sign"><a href="#">GENRES</a></span>
+        <span class="sign"><a href="#">SERIES</a></span>
+        <span class="sign"><a href="#">MOVIES</a></span>
+      </header>
+      
+        <div class="slider">
+        <!-- fade css -->
+        <div class="myslide fade">
+          <div class="txt">
+            <h1>#1 in KodeGo</h1>
+            <p>A man takes on the job of caring for a<br>little girl, the daughter he left behind<br>years ago.</p>
+            <a href="#"><button class="playbtn"><b>PLAY</b></button></a>
+            <a href="#"><button class="morebtn">More Info</button></a>
+          </div>
+          <img class="slideimg" src="3.png" style="width: 100%; height: 100%;">
+        </div>
+        
+        <div class="myslide fade">
+          <div class="txt">
+            <h1>#1 in WD28</h1>
+            <p>Mensa-fied best friends and roommates Leonard<br>and Sheldon, physicists who work at the California<br>Institute of Technology, may be able to tell everybody<br>more than they want to know about quantum physics,<br>but getting through most basic social situations,<br>especially ones involving women, totally baffles them.</p>
+            <a href="#"><button class="playbtn"><b>PLAY</b></button></a>
+            <a href="#"><button class="morebtn">More Info</button></a>
+          </div>
+          <img class="slideimg" src="11.jpg" style="width: 100%; height: 100%;">
+        </div>
+        
+        <div class="myslide fade">
+          <div class="txt">
+            <h1>New Release</h1>
+            <p> A midnight showing of an early 1970's horror<br>movie turns to chaos when the Killer from<br>the movie comes out of the film to attack<br>those in the theater.</p>
+            <a href="#"><button class="playbtn"><b>PLAY</b></button></a>
+            <a href="#"><button class="morebtn">More Info</button></a>
+          </div>
+          <img src="9.jpg" class="slideimg" style="width: 100%; height: 100%;">
+        </div>
+        
+        <div class="myslide fade">
+          <div class="txt">
+            <h1>New Release</h1>
+            <p>A seventeen-year-old aristocrat falls in love<br>with a kind but poor artist aboard the luxurious,<br>ill-fated R.M.S. Titanic.</p>
+            <a href="#"><button class="playbtn"><b>PLAY</b></button></a>
+            <a href="#"><button class="morebtn">More Info</button></a>
+          </div>
+          <img src="10.jpg" class="slideimg" style="width: 100%; height: 100%;">
+        </div>
+        
+        <div class="myslide fade">
+          <div class="txt">
+            <h1>Hot Topic</h1>
+            <p>14th-century knights transport a suspected witch<br>to a monastery, where monks deduce that her powers<br>could be the source of the Black Plague.</p>
+            <a href="#"><button class="playbtn"><b>PLAY</b></button></a>
+            <a href="#"><button class="morebtn">More Info</button></a>
+          </div>
+          <img src="7.jpg" class="slideimg" style="width: 100%; height: 100%;">
+        </div>
+        <!-- /fade css -->
+        
+        <!-- onclick js -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+        <div class="dotsbox" style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+        <!-- /onclick js -->
+      </div>
+    
+    <div class="cemetery">
+      <h1 style=" color:white; margin-left: 40px; margin-bottom:0px;">My Channel</h1>
+      <br>
+        <div class="casket">
+        <div class="lineups  zoomin">
+          <img src="1.jpg" />
+          <p class="lineups-content">Play Beyond Skyline</p>
+        </div>
+        <div class="lineups zoomin">
+          <img src="2.jpg" />
+          <p class="lineups-content">Play Luckiest Girl Alive</p>
+        </div>
+        <div class="lineups zoomin">
+          <img src="3.png" />
+          <p class="lineups-content">Play Doll House</p>
+        </div>
+        <div class="lineups zoomin">
+          <img src="4.jfif" />
+          <p class="lineups-content">Play Kidnap</p>
+        </div>
+        <div class="lineups zoomin">
+          <img src="5.jpg" />
+          <p class="lineups-content">Play The Redeem Team</p>
+        </div>
+    </div>
+      <br>
+      <div class="cemetery2">
+        <h1 style=" color:white; margin-left: 40px; margin-bottom:2px;">New Release</h1>
+        <br>
+        <div class="casket2">
+          <div class="lineups2">
+            <img src="Beravement.jpg"/>
+            <p class="lineups-content">Play Beravement</p>
+          </div>
+          <div class="lineups2">
+            <img src="IT.jpg" />
+            <p class="lineups-content">Play I.T. 2</p>
+          </div>
+          <div class="lineups2">
+            <img src="Aquaman.jpg" />
+            <p class="lineups-content">Play Aquaman</p>
+          </div>
+          <div class="lineups2">
+            <img src="Finding Nemo.jpg" />
+            <p class="lineups-content">Play Finding Nemo</p>
+          </div>
+          <div class="lineups2">
+            <img src="Pacific Rim 2.jpg" />
+            <p class="lineups-content">Play Pacific Rim 2</p>
+          </div>
+          <div class="lineups2">
+            <img src="King Kong.jpg" />
+            <p class="lineups-content">Play King-Kong</p>
+          </div>
+          <div class="lineups2">
+            <img src="John Wick.jpg" />
+            <p class="lineups-content">Play John Wick</p>
+          </div>
+          <div class="lineups2">
+            <img src="Rampage.jpg" />
+            <p class="lineups-content">Play Rampage</p>
+          </div>
+          <div class="lineups2">
+            <img src="Terminator.jpg" />
+            <p class="lineups-content">Play Terminator</p>
+          </div>
+          <div class="lineups2">
+            <img src="3.png" />
+            <p class="lineups-content">Play Doll House</p>
+        </div>
+    </div>
+
+    <div class="row" style="background-color:#65370D">
+      <h1>Want o become Updated?</h1>
+    </div>
+    
+    <script>
+      const myslide = document.querySelectorAll('.myslide'),
+	    dot = document.querySelectorAll('.dot');
+        let counter = 1;
+          slidefun(counter);
+
+      let timer = setInterval(autoSlide, 8000);
+        function autoSlide() {
+	        counter += 1;
+	        slidefun(counter);
+      }
+        function plusSlides(n) {
+	        counter += n;
+	        slidefun(counter);
+	        resetTimer();
+      }
+      function currentSlide(n) {
+	      counter = n;
+	      slidefun(counter);
+	      resetTimer();
+      }
+      function resetTimer() {
+	      clearInterval(timer);
+	      timer = setInterval(autoSlide, 8000);
+      }
+      function slidefun(n) {
+	
+	      let i;
+	      for(i = 0;i<myslide.length;i++){
+		    myslide[i].style.display = "none";
+	    }
+	      for(i = 0;i<dot.length;i++) {
+		    dot[i].className = dot[i].className.replace(' active', '');
+	    }
+	    if(n > myslide.length){
+	   counter = 1;
+	     }
+	    if(n < 1){
+	    counter = myslide.length;
+	    }
+	    myslide[counter - 1].style.display = "block";
+	      dot[counter - 1].className += " active";
+      }
+    </script>
+  </body>
+</html>
