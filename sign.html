@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="sign.css" />
+    <link rel="shortcut icon" href="play.png" type="image">
+    <title>Sign In</title>
+  </head>
+  <body>
+    <div class="main">
+      
+    <div class="col-12">
+      <button class="btn" onclick="document.getElementById('id01').style.display='block'" style = "width:auto;">LOG IN</button>
+      <div id="id01" class="modal">
+          
+        <form class="modal-content animate"
+              action="/action_page.php" method="post">
+  
+              <div class="imgcontainer">
+                  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal"> &times;</span>
+              </div>
+              <div class="container">
+                  <label for="uname"><b>Username</b></label>
+                  <input type="text" placeholder="Enter Username" name="uname" required>
+                  <br>
+                  <label for="psw"><b>Password</b></label>
+                  <input type="text" placeholder="Enter Password" name="psw" required>
+          
+                  <a href="Home.html"></a><button class="btn" type="submit" style="color:white; width:20%" >LOG IN</button></a>
+                  <label> <input type="checkbox" checked="checked" name="remember">Remember me</label>
+              </div>
+
+              <span class="psw" id="span"><a href="extra.html">Forgot password?</a></span>
+              </div>
+          </form>
+          </div>
+        <div class="col-4">
+          <img src="film.png" style="height:500px; top:20px;">
+        </div>
+        <div class="col-8">
+          <h1>the<span style="color:black">Hub</span></h1>
+          <p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where moments will come to live!</i></p>
+          <a href="Home.html">Start Playing...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h1 style="color:#f48c06;">INVKRS</h1>
+      <p style="color:white; padding-left:20px;">an activity requirement for WD28</p>
+    </div>
+      <script>
+          var modal = document.getElementById('id01');
+          window.onclick = function(event){
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+          }
+      </script>
+</div>
+
+    </script>
+  </body>
+</html>

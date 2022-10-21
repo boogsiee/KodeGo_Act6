@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="play.png" type="image" />
+    <link rel="stylesheet" href="movies.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>theHub/Movies</title>
+  </head>
+  <body style="background: #020516">
+    <header>
+      <div id="logo">the<span id="logo-s">Hub</span></div>
+      <span class="sign"
+        ><a class="profile openbtn" href="#" onclick="openNav()">☰</a></span
+      >
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <img
+          src="man.png"
+          style="height: 50px; width: 50px; margin: 0px 20px 30px 20px"
+        />
+        <hr />
+        <a href="#">My Profile</a>
+        <a href="#">My Subscriptions</a>
+        <a href="#">My Channel</a>
+        <hr />
+        <a href="#">Settings</a>
+        <a href="#">Privacy</a>
+        <a href="sign.html">Log-Out</a>
+      </div>
+
+      <span class="sign dropdown"
+        ><a href="#">GENRES</a>
+        <div class="dropdown-content">
+          <p>Horror</p>
+          <p>Sci-Fi</p>
+          <p>Romance</p>
+          <p>Comedy</p>
+          <p>Documentaries</p>
+          <p>Action</p>
+        </div></span
+      >
+      <span class="sign" type="submit"
+        ><i class="fa fa-search" style="color: aliceblue"></i
+      ></span>
+      <span class="sign"><a href="#">SERIES</a></span>
+      <span class="sign active"><a href="#">MOVIES</a></span>
+      <span class="sign"><a href="Home.html">HOME</a></span>
+    </header>
+    <br />
+    <br />
+    <br />
+    <!-- Action -->
+    <div class="container bg-dark mt-3 rounded-1 shadow">
+      <div class="row h3 p-3 text-warning">Action</div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row justify-content-between">
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Action/rednotice.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Red Notice</h5>
+            <p class="card-text mt-2 mb-2 p-0" style="text-align: justify">
+              An Interpol agent successfully tracks down the world's most wanted
+              art thief...
+            </p>
+          </div>
+          <!-- start footer card -->
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button
+              type="button"
+              class="btn btn-warning mt-2 fw-semibold"
+              data-bs-toggle="modal"
+              data-bs-target="#rednotice"
+            >
+              See More
+            </button>
+            <!-- Modal -->
+            <div
+              class="modal fade modal-lg"
+              id="rednotice"
+              tabindex="-1"
+              aria-labelledby="rednoticeLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="rednoticeLabel">Red Notice</h5>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img
+                          src="./img/Action/rednotice.jpg"
+                          class="card-img-top rounded-1"
+                          style="width: auto; height: 200px"
+                        />
+                      </div>
+                      <div class="col-9">
+                        <p
+                          class="card-text"
+                          style="text-align: justify; font-size: 14px"
+                        >
+                          An Interpol agent successfully tracks down the world's
+                          most wanted art thief, with help from a rival thief.
+                          But nothing is as it seems, as a series of
+                          double-crosses ensue. When an Interpol-issued Red
+                          Notice the highest level warrant to hunt and capture
+                          the world's most wanted goes out, the FBI's top
+                          profiler John Hartley (Dwayne Johnson) is on the case.
+                          His global pursuit finds him smack dab in the middle
+                          of a daring heist where he's forced to partner with
+                          the world's greatest art thief Nolan Booth (Ryan
+                          Reynolds) in order to catch the world's most wanted
+                          art thief, "The Bishop" (Gal Gadot). The high-flying
+                          adventure that ensues takes the trio around the world,
+                          across the dance floor, trapped in a secluded prison,
+                          into the jungle and, worst of all for them, constantly
+                          into each other's company.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-warning fw-semibold">
+                      Watch Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end footer card -->
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Action/wild card.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Wildcard</h5>
+            <p class="card-text mt-2 mb-2 p-0" style="text-align: justify">
+              An Interpol agent successfully tracks down the world's most wanted
+              art thief...
+            </p>
+          </div>
+          <!-- start footer card -->
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button
+              type="button"
+              class="btn btn-warning mt-2 fw-semibold"
+              data-bs-toggle="modal"
+              data-bs-target="#wildcard"
+            >
+              See More
+            </button>
+            <!-- Modal -->
+            <div
+              class="modal fade modal-lg"
+              id="wildcard"
+              tabindex="-1"
+              aria-labelledby="wildcardLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="wildcardLabel">Wildcard</h5>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <img
+                          src="./img/Action/wild card.jpg"
+                          class="card-img-top rounded-1"
+                          style="width: auto; height: 200px"
+                        />
+                      </div>
+                      <div class="col-9">
+                        <p
+                          class="card-text"
+                          style="text-align: justify; font-size: 14px"
+                        >
+                          An Interpol agent successfully tracks down the world's
+                          most wanted art thief, with help from a rival thief.
+                          But nothing is as it seems, as a series of
+                          double-crosses ensue. When an Interpol-issued Red
+                          Notice the highest level warrant to hunt and capture
+                          the world's most wanted goes out, the FBI's top
+                          profiler John Hartley (Dwayne Johnson) is on the case.
+                          His global pursuit finds him smack dab in the middle
+                          of a daring heist where he's forced to partner with
+                          the world's greatest art thief Nolan Booth (Ryan
+                          Reynolds) in order to catch the world's most wanted
+                          art thief, "The Bishop" (Gal Gadot). The high-flying
+                          adventure that ensues takes the trio around the world,
+                          across the dance floor, trapped in a secluded prison,
+                          into the jungle and, worst of all for them, constantly
+                          into each other's company.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-warning fw-semibold">
+                      Watch Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end footer card -->
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Action/nyara the kidnapping.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Nyara the kidnapping</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Action/spykidsgameover.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Spy kids:Gameover</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Action/thewitcher.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">The Witcher</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+      </div>
+    </div>
+
+    <!-- Documentaries -->
+    <div class="container bg-dark mt-3 shadow">
+      <div class="row h4 p-3 text-warning">Documentaries</div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row justify-content-between">
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Doc/formula 1 drive to survive.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Formula 1</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Doc/hitler circle of evil.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Hitler Circle of Evil</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Doc/jeffrey dahmer.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Jeffrey Dahmer</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Doc/the last dance.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Last Dance</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Doc/unsolved mysteries.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Unsolved Mysteries</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+      </div>
+    </div>
+
+    <!-- Horror -->
+    <div class="container bg-dark mt-3 shadow">
+      <div class="row h4 p-3 text-warning">Horror</div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="row justify-content-between">
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Horror/annabelle.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Annabelle</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Horror/dont look at the demon.png"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Don't look at the Demon</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Horror/prey for the devil.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Prey for the Devil</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Horror/ushikubi mura.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Ushikubi</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- start card -->
+        <div class="card p-2 shadow" style="width: 18%">
+          <img
+            src="./img/Horror/where the scary things are.jpg"
+            class="card-img-top rounded-1"
+            style="height: 100px"
+          />
+          <div class="card-body mt-2 p-0">
+            <h5 class="card-title m-0 p-0">Where the scary things are</h5>
+            <p
+              class="card-text mt-2 mb-2 p-0"
+              style="text-align: justify; font-size: 10px"
+            >
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+          </div>
+          <div class="card-footer m-0 p-0 d-flex flex-column">
+            <button type="button" class="btn btn-warning mt-2 fw-semibold">
+              Watch Now
+            </button>
+          </div>
+        </div>
+        <!-- end card -->
+      </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    >
+
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+  </body>
+</html>
